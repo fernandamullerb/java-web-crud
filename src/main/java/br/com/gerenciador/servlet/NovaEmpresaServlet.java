@@ -37,11 +37,9 @@ public class NovaEmpresaServlet extends HttpServlet {
 		empresa.setDataAbertura(dataAbertura);
 		
 		Banco banco = new Banco();
-		banco.adiciona(empresa); //adicionando a empresa criada do DB.
+		banco.adiciona(empresa); //adicionando a empresa criada do banco.
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp"); //chamando o jsp.
-		request.setAttribute("empresa", empresa.getNome());
-		rd.forward(request, response); //passando para o jsp.
+		request.setAttribute("empresa", empresa.getNome()); 
+		response.sendRedirect("listaEmpresas"); //redirecionamento client side.
 	}
-
 }

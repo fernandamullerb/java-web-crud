@@ -3,6 +3,9 @@ package br.com.gerenciador.servlet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que simula um DB e inicializa o cadastro de duas empresas pré-definidas.
+ **/
 public class Banco {
 
 	private static List<Empresa> lista = new ArrayList<>();
