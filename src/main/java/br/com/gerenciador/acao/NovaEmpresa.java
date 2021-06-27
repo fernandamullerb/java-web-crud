@@ -1,25 +1,20 @@
-package br.com.gerenciador.servlet;
+package br.com.gerenciador.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
-	
-	private static final long serialVersionUID = 1L;
-       
-	//doPost só aceita método post, doGet só get e service() aceita ambos.
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    		throws IOException, ServletException {
+import br.com.gerenciador.modelo.Banco;
+import br.com.gerenciador.modelo.Empresa;
+
+public class NovaEmpresa implements Acao {
+
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String nomeEmpresa = request.getParameter("nome"); //pegando o parâmetro e atribuindo a uma String.
 		String dataEmpresa = request.getParameter("data"); //pegando o parâmetro e atribuindo a uma String.
@@ -40,6 +35,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		banco.adiciona(empresa); //adicionando a empresa criada do banco.
 		
 		request.setAttribute("empresa", empresa.getNome()); 
-		response.sendRedirect("listaEmpresas"); //redirecionamento client side.
-	}
+		return "redirect:entrada?acao=ListaEmpresas"; //redirecionamento client side.
+		
+	}	
 }
