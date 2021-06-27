@@ -12,18 +12,29 @@ import org.apache.jasper.tagplugins.jstl.core.ForEach;
 public class Banco {
 
 	private static List<Empresa> lista = new ArrayList<>();
+	private static List<Usuario> listaUsuarios = new ArrayList<>();
 	private static Integer chaveSequencial = 1;
 	
 	static {
 		Empresa empresa1 = new Empresa();
 		empresa1.setId(chaveSequencial++);
-		empresa1.setNome("Itaú");
+		empresa1.setNome("Udemy");
 		lista.add(empresa1);
 		
 		Empresa empresa2 = new Empresa();
 		empresa2.setId(chaveSequencial++);
 		empresa2.setNome("Alura");
 		lista.add(empresa2);
+		
+		Usuario usuario1 = new Usuario();
+		usuario1.setLogin("fernanda");
+		usuario1.setSenha("1234");
+		listaUsuarios.add(usuario1);
+		
+		Usuario usuario2 = new Usuario();
+		usuario2.setLogin("chiquinha");
+		usuario2.setSenha("4321");
+		listaUsuarios.add(usuario2);
 	}
 	
 	public void adiciona(Empresa empresa) {
