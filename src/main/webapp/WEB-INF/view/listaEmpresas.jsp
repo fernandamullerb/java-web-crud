@@ -12,9 +12,9 @@
 		<title>Lista de Empresas Cadastradas</title>
 	</head>
 	<body>
-		<c:if test="${not empty empresa}">
-			Empresa ${empresa} cadastrada com sucesso.
-		</c:if>
+		<c:import url="logout-parcial.jsp"/>
+		Usuário logado: ${usuarioLogado.login}
+		<br><br>
 		Lista de empresas: <br/>
 		<ul>
 			<c:forEach items="${empresas}" var="empresa">

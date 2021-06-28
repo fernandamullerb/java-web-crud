@@ -9,6 +9,7 @@
 		<title>Cadastrar nova empresa</title>
 	</head>
 	<body>
+		<c:import url="logout-parcial.jsp"/>
 		<form action="${linkServletNovaEmpresa}" method="post">
 			Nome: <input type="text" name="nome"/>
 			Data de Abertura: <input type="text" name="data"/>

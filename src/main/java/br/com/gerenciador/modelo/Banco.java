@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
 /**
  * Classe que simula um DB e inicializa o cadastro de duas empresas pré-definidas.
  **/
@@ -62,6 +60,15 @@ public class Banco {
 		for (Empresa empresa : lista) {
 			if (empresa.getId() == id) {
 				return empresa;
+			}
+		}
+		return null;
+	}
+
+	public Usuario existeUsuario(String login, String senha) {
+		for (Usuario usuario : listaUsuarios) {
+			if (usuario.confere(login,  senha)) {
+				return usuario;
 			}
 		}
 		return null;
